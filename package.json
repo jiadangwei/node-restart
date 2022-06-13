@@ -1,0 +1,32 @@
+{
+    "name": "node-restart",
+    "version": "1.0.7",
+    "description": "node-restart 通过在检测到目录中的文件更改时自动重新启动节点应用程序（Restarts your app when files are modified）, node-restart 可替代nodemon。解决nodemon修改频繁端口经常被占用的问题。 ", 
+    "author": {
+        "name": "DANGWEI JIA",
+        "url": "https://gitee.com/"
+    },
+    "bin": {
+        "node-restart": "./bin/node-restart"
+     },
+    "scripts": {
+        "lib": "cross-env NODE_ENV=production rollup -c"
+    },
+    "engines": {
+        "node": ">=8.10.0"
+     },
+    "keywords": [],
+    "license": "MIT",
+    "main": "./",
+    "module": "./",
+    "sideEffects": false,
+    "devDependencies": {},
+    "dependencies": {
+        "child_process": "^1.0.2",
+        "chokidar": "^1.7.0"
+    },
+    "peerDependencies": {
+       
+    }
+}
+ 

@@ -1,0 +1,38 @@
+const chokidar = require("chokidar");
+const { spawn } = require("child_process");
+var path= require('path');
+var fs = require("fs") ;
+
+let nodeRestart=(ops)=>{
+  let {script,watch}=ops
+  let childProcess;
+  let watchDir=["."]
+  let targetPath=watch?path.resolve(watch[0]):["."]
+  if(fs.existsSync(targetPath)){
+     watchDir=watch
+  }
+const debounceStartServer = debounce(startServer, 1000);
+chokidar.watch(watchDir).on("all", (event, path) => {
+  childProcess && childProcess.kill();
+  debounceStartServer();
+});
+function startServer() {
+  console.log("[ starting ] >", `node ${script}`);
+  childProcess = spawn("node", [`${script}`], {
+    stdio: [process.stdin, process.stdout, process.stderr],
+  });
+}
+function debounce(fun, wait = 200) {
+  let timer;
+  return function () {
+    const context = this;
+    const args = arguments;
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      fun.apply(context, args);
+    }, wait);
+  };
+}
+}
+
+module.exports = nodeRestart;
